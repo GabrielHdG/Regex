@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=;, initial-scale=1.0" />
+    <title>Telefone</title>
+  </head>
+  <body onload="document.form1.text1.focus()">
+    <div class="mail">
+      <h2>Insira o celular</h2>
+
+      <form name="form1" action="#">
+        <ul>
+          <li><input type="text" name="text1" /></li>
+
+          <li>&nbsp;</li>
+
+          <li class="validate">
+            <input
+              type="submit"
+              name="validate"
+              value="Validate"
+              onclick="validarTelefone(document.form1.text1)"
+            />
+          </li>
+
+          <li>&nbsp;</li>
+        </ul>
+      </form>
+    </div>
+  </body>
+
+  <script>
+    function validarTelefone(input) {
+      const validRegex =
+        /(\+\d{1,3}\s?)?((\(\d{3}\)\s?)|(\d{3})(\s|-?))(\d{3}(\s|-?))(\d{4})(\s?(([E|e]xt[:|.|]?)|x|X)(\s?\d+))?/g;
+      //o método match rexecuta uma pesquisa por uma string
+      if (input.value.match(validRegex)) {
+        alert("Telefone válido");
+
+        document.form1.text1.focus();
+
+        return true;
+      } else {
+        alert("Telefone inválido");
+
+        document.form1.text1.focus();
+
+        return false;
+      }
+    }
+  </script>
+</html>
