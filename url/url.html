@@ -3,19 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=;, initial-scale=1.0" />
-    <title>Telefone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Url</title>
   </head>
   <body onload="document.form1.text1.focus()">
     <!--
-      Regex para validar um número de telefone de 10 digitos
-      O problema de validar um número de telefone ou celular é a quantidade de combinações,
-      por isso é recomendado desenvolver cada validação diretamente para cada país, ou pelo
-      menos foi isso que eu entendi 
+        Tá, esse eu confesso que olhei o código inteiro mas entendi pouco, já tá em um nível de louco
     -->
 
     <div>
-      <h2>Insira o celular</h2>
+      <h2>Insira o url para ser validado</h2>
 
       <form name="form1" action="#">
         <ul>
@@ -25,7 +22,7 @@
               type="submit"
               name="validate"
               value="Validate"
-              onclick="validarTelefone(document.form1.text1)"
+              onclick="validarUrl(document.form1.text1)"
             />
           </li>
         </ul>
@@ -34,18 +31,18 @@
   </body>
 
   <script>
-    function validarTelefone(input) {
+    function validarUrl(input) {
       const validRegex =
-        /(\+\d{1,3}\s?)?((\(\d{3}\)\s?)|(\d{3})(\s|-?))(\d{3}(\s|-?))(\d{4})(\s?(([E|e]xt[:|.|]?)|x|X)(\s?\d+))?/g;
+        /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/;
       //o método match rexecuta uma pesquisa por uma string
       if (input.value.match(validRegex)) {
-        alert("Telefone válido");
+        alert("Url válido");
 
         document.form1.text1.focus();
 
         return true;
       } else {
-        alert("Telefone inválido");
+        alert("Url inválido");
 
         document.form1.text1.focus();
 
